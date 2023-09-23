@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Ticket;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TicketController extends Controller
 {
@@ -20,15 +21,10 @@ class TicketController extends Controller
 
     public function store(Request $request)
     {
-        $ticket = new Ticket([
-            'nombre' => $request->input('nombre'),
-            'apellido' => $request->input('apellido'),
-            'correo' => $request->input('correo'),
-            'area' => $request->input('area')
-        ]);
-
-        $ticket->save();
-
+        $datosTicket = $request->except('_token');
+    
+        DB::table('tickets')->insert($datosTicket);
+    
         return redirect()->route('tickets.index')->with('success', 'Ticket creado exitosamente.');
     }
 
