@@ -14,12 +14,10 @@ use App\Http\Controllers\TicketController;
 |
 */
 
-// Ruta de inicio
 Route::get('/', function () {
     return view('welcome');
 });
 
-// Rutas de ticketss
 Route::resource('tickets', TicketController::class);
 
 
