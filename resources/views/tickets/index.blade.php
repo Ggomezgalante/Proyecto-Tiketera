@@ -1,8 +1,7 @@
     <h1>Listado de Tickets</h1>
     
     <a href="{{ route('tickets.create') }}" class="btn btn-primary">Crear Nuevo Ticket</a>
-    
-    <table class="table table-bordered mt-3">
+    <table class="table-primary">
         <thead>
             <tr>
                 <th>ID</th>
