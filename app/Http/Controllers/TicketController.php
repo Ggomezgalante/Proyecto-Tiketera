@@ -25,7 +25,7 @@ class TicketController extends Controller
     
         DB::table('tickets')->insert($datosTicket);
     
-        return redirect()->route('tickets.index')->with('success', 'Ticket creado exitosamente.');
+        return redirect('tickets')->with('mensaje', 'Ticket creado exitosamente.');
     }
 
     public function show($id)
@@ -45,7 +45,7 @@ class TicketController extends Controller
         $ticket = Ticket::find($id);
         $ticket->update($request->all());
 
-        return redirect()->route('tickets.index')->with('success', 'Ticket actualizado exitosamente.');
+        return redirect('tickets')->with('mensaje', 'Ticket actualizado exitosamente.');
     }
 
     public function destroy($id)
@@ -53,7 +53,7 @@ class TicketController extends Controller
         $ticket = Ticket::find($id);
         $ticket->delete();
 
-        return redirect()->route('tickets.index')->with('success', 'Ticket eliminado exitosamente.');
+        return redirect('tickets')->with('mensaje', 'Ticket eliminado exitosamente.');
     }
 }
 
